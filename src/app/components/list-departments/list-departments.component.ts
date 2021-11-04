@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {DepartmentsContainer} from '../../applicationfacade/department/DepartmentsContainer';
+import {Department} from '../../applicationfacade/department/Department';
+import {DepartmentRestService} from '../../rest/department-rest.service';
 
 @Component({
   selector: 'app-icons',
@@ -8,9 +9,12 @@ import {DepartmentsContainer} from '../../applicationfacade/department/Departmen
 })
 export class ListDepartmentsComponent implements OnInit {
   @Input()
-  public departments: DepartmentsContainer = new DepartmentsContainer();
+  public departments: Department[] = [];
 
-  constructor() {}
+  constructor(private restService: DepartmentRestService) {
+    this.restService.getDepartments()
+    .subscribe(departments => this.departments = departments);
+  }
 
   ngOnInit() {
   }

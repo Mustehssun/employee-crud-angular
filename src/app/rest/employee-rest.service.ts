@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {EmployeesContainer} from '../applicationfacade/employee/EmployeesContainer';
 import {Employee} from '../applicationfacade/employee/Employee';
 
 @Injectable({
@@ -11,13 +10,13 @@ export class EmployeeRestService {
     return this.httpClient.get<Employee[]>("http://localhost:3000/employees/")
   }
 
-  public addEmployee() {
+  public addEmployee(employee: Employee) {
     return this.httpClient.post<Employee>("http://localhost:3000/employees/", {
-      "firstName": "Mustehssun",
-      "lastName": "Iqbal",
-      "salary": 100,
-      "email": "mustehssun@gmail.com",
-      "phoneNumber": "03422459109"
+      "firstName": employee.firstName,
+      "lastName": employee.lastName,
+      "salary": employee.salary,
+      "email": employee.email,
+      "phoneNumber": employee.phoneNumber
     })
   }
 

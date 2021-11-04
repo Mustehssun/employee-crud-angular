@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Employee} from '../../applicationfacade/employee/Employee';
+import {EmployeeRestService} from '../../rest/employee-rest.service';
 
 @Component({
   selector: 'app-user-profile',
@@ -11,10 +12,11 @@ export class AddEmployeeComponent implements OnInit {
   public employee: Employee = new Employee;
 
   public onSave() {
-    console.log(this.employee);
+    this.restService.addEmployee(this.employee)
+    .subscribe(console.log);
   }
 
-  constructor() { }
+  constructor(private restService: EmployeeRestService) {}
 
   ngOnInit() {
   }

@@ -9,6 +9,7 @@ import { ListDepartmentsComponent } from '../../components/list-departments/list
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
     { path: 'add-employee',   component: AddEmployeeComponent },
+    { path: 'update-employee',   component: AddEmployeeComponent },
     { path: 'list-employees',     component: ListEmployeesComponent },
     { path: 'add-department',     component: AddDepartmentComponent },
     { path: 'list-departments',          component: ListDepartmentsComponent }

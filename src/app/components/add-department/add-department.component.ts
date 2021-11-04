@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Department} from '../../applicationfacade/department/Department';
+import {DepartmentRestService} from '../../rest/department-rest.service';
 
 @Component({
   selector: 'app-typography',
@@ -11,10 +12,11 @@ export class AddDepartmentComponent implements OnInit {
   public department: Department = new Department();
 
   public onSave() {
-    console.log(this.department);
+    this.restService.addDepartment(this.department)
+    .subscribe(console.log);
   }
 
-  constructor() { }
+  constructor(private restService: DepartmentRestService) {}
 
   ngOnInit() {
   }
