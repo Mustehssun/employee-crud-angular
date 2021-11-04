@@ -1,5 +1,4 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {EmployeesContainer} from '../../applicationfacade/employee/EmployeesContainer';
 import {EmployeeRestService} from '../../rest/employee-rest.service';
 import {Employee} from '../../applicationfacade/employee/Employee';
 
