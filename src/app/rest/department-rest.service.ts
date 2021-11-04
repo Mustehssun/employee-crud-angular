@@ -20,6 +20,21 @@ export class DepartmentRestService {
     });
   }
 
+  public updateDepartment(department: Department) {
+    console.log("updating department...");
+
+    return this.httpClient.post<Department>("http://localhost:3000/departments/" + department.id, {
+      "name": department.name,
+      "managerId": department.managerId
+    });
+  }
+
+  public deleteDepartment(id: String) {
+    console.log("updating department...");
+
+    return this.httpClient.delete<Department>("http://localhost:3000/departments/" + id);
+  }
+
   constructor(private httpClient: HttpClient) {
 
   }

@@ -4,16 +4,16 @@ import {DepartmentRestService} from '../../rest/department-rest.service';
 
 @Component({
   selector: 'app-typography',
-  templateUrl: './add-department.component.html',
-  styleUrls: ['./add-department.component.css']
+  templateUrl: './update-department.component.html',
+  styleUrls: ['./update-department.component.css']
 })
-export class AddDepartmentComponent implements OnInit {
+export class UpdateDepartmentComponent implements OnInit {
   @Input()
   public department: Department = new Department();
 
   public onSave() {
-    this.restService.addDepartment(this.department)
-    .subscribe(department => alert("Department added successfully!"));
+    this.restService.updateDepartment(this.department)
+    .subscribe(department => alert("Department updated successfully!"));
   }
 
   constructor(private restService: DepartmentRestService) {}

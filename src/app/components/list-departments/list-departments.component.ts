@@ -16,6 +16,13 @@ export class ListDepartmentsComponent implements OnInit {
     .subscribe(departments => this.departments = departments);
   }
 
+  public onDelete(department: Department) {
+    this.restService.deleteDepartment(department.id)
+    .subscribe(() => {
+      this.departments = this.departments.filter(elem => elem.id !== department.id);
+    });
+  }
+
   ngOnInit() {
   }
 

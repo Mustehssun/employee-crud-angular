@@ -16,6 +16,8 @@ import {MatRippleModule} from '@angular/material/core';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatSelectModule} from '@angular/material/select';
+import {UpdateEmployeeComponent} from '../../components/update-employee/update-employee-component';
+import {UpdateDepartmentComponent} from '../../components/update-department/update-department.component';
 
 @NgModule({
   imports: [
@@ -33,8 +35,10 @@ import {MatSelectModule} from '@angular/material/select';
   declarations: [
     DashboardComponent,
     AddEmployeeComponent,
+    UpdateEmployeeComponent,
     ListEmployeesComponent,
     AddDepartmentComponent,
+    UpdateDepartmentComponent,
     ListDepartmentsComponent,
     NotificationsComponent,
     UpgradeComponent,

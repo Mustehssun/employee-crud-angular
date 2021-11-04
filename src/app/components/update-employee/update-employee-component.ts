@@ -3,17 +3,17 @@ import {Employee} from '../../applicationfacade/employee/Employee';
 import {EmployeeRestService} from '../../rest/employee-rest.service';
 
 @Component({
-  selector: 'app-add-employee',
-  templateUrl: './add-employee.component.html',
-  styleUrls: ['./add-employee.component.css']
+  selector: 'app-update-employee',
+  templateUrl: './update-employee-component.html',
+  styleUrls: ['./update-employee-component.css']
 })
-export class AddEmployeeComponent implements OnInit {
+export class UpdateEmployeeComponent implements OnInit {
   @Input()
   public employee: Employee = new Employee;
 
   public onSave() {
-    this.restService.addEmployee(this.employee)
-    .subscribe(alert);
+    this.restService.updateEmployee(this.employee)
+    .subscribe(employee => alert("Employee updated successfully!"));
   }
 
   constructor(private restService: EmployeeRestService) {}

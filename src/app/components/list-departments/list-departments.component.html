@@ -32,6 +32,9 @@
                                     <td>
                                         {{ department.managerId }}
                                     </td>
+                                    <td>
+                                        <button mat-raised-button type="submit" class="btn btn-danger pull-right" (click)="onDelete(department)">Delete</button>
+                                    </td>
                                 </tr>
                                 </tbody>
                             </table>

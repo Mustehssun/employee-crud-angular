@@ -20,6 +20,16 @@ export class EmployeeRestService {
     })
   }
 
+  public updateEmployee(employee: Employee) {
+    return this.httpClient.post<Employee>("http://localhost:3000/employees/" + employee.id, {
+      "firstName": employee.firstName,
+      "lastName": employee.lastName,
+      "salary": employee.salary,
+      "email": employee.email,
+      "phoneNumber": employee.phoneNumber
+    })
+  }
+
   constructor(private httpClient: HttpClient) {
 
   }
