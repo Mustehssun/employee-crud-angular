@@ -13,7 +13,12 @@ export class AddDepartmentComponent implements OnInit {
 
   public onSave() {
     this.restService.addDepartment(this.department)
-    .subscribe(department => alert("Department added successfully!"));
+    .subscribe(department => alert("Department added successfully!"),
+        err => {
+          const combinedMessage = err.error.reduce((acc, elem) => acc + elem + "\n");
+
+          alert(combinedMessage);
+        });
   }
 
   constructor(private restService: DepartmentRestService) {}

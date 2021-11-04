@@ -6,8 +6,14 @@ import {Employee} from '../applicationfacade/employee/Employee';
   providedIn: 'root'
 })
 export class EmployeeRestService {
-  public getEmployees() {
-    return this.httpClient.get<Employee[]>("http://localhost:3000/employees/")
+  public getEmployees(offset: Number, limit: Number) {
+    offset = offset == null? 0: offset;
+    limit = limit == null? 5: limit;
+
+    console.log("offset", offset);
+    console.log("limit", limit);
+
+    return this.httpClient.get<Employee[]>("http://localhost:3000/employees/?offset=" + offset + "&limit=" + limit)
   }
 
   public addEmployee(employee: Employee) {
@@ -28,6 +34,10 @@ export class EmployeeRestService {
       "email": employee.email,
       "phoneNumber": employee.phoneNumber
     })
+  }
+
+  public deleteEmployee(id: String) {
+    return this.httpClient.delete<Employee>("http://localhost:3000/employees/" + id);
   }
 
   constructor(private httpClient: HttpClient) {

@@ -44,9 +44,15 @@
                                       <td class="text-primary">
                                           ${{ employee.salary }}
                                       </td>
+                                      <td>
+                                          <button mat-raised-button type="submit" class="btn btn-danger pull-right" (click)="onDelete(employee)">Delete</button>
+                                      </td>
                                   </tr>
                               </tbody>
                           </table>
+                          <button mat-raised-button type="submit" class="btn btn-danger pull-right">Page #{{ pageNum }}</button>
+                          <button mat-raised-button type="submit" class="btn btn-danger pull-right" (click)="next()"> > </button>
+                          <button mat-raised-button type="submit" class="btn btn-danger pull-right" (click)="prev()"> < </button>
                       </div>
                   </div>
               </div>

@@ -124,7 +124,7 @@
 		};
 
 		if (typeof this.settings.offset === 'number') {
-			this.settings.offset = {
+			this.settings.pageNum = {
 				x: this.settings.offset,
 				y: this.settings.offset
 			};

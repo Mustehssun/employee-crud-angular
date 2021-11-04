@@ -13,7 +13,12 @@ export class UpdateDepartmentComponent implements OnInit {
 
   public onSave() {
     this.restService.updateDepartment(this.department)
-    .subscribe(department => alert("Department updated successfully!"));
+    .subscribe(department => alert("Department updated successfully!"),
+        err => {
+          const combinedMessage = err.error.reduce((acc, elem) => acc + elem + "\n");
+
+          alert(combinedMessage);
+        });
   }
 
   constructor(private restService: DepartmentRestService) {}

@@ -13,7 +13,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/update-employee', title: 'Update Employee',  icon:'content_paste', class: '' },
     { path: '/list-employees', title: 'List Employees',  icon:'content_paste', class: '' },
     { path: '/add-department', title: 'Add Department',  icon:'person', class: '' },
-    { path: '/update-department', title: 'Update Department',  icon:'person', class: '' },
+    { path: '/update-department', title: 'Update\ Department',  icon:'person', class: '' },
     { path: '/list-departments', title: 'List Departments',  icon:'content_paste', class: '' }
 ];
 

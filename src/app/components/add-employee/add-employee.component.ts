@@ -13,7 +13,12 @@ export class AddEmployeeComponent implements OnInit {
 
   public onSave() {
     this.restService.addEmployee(this.employee)
-    .subscribe(alert);
+    .subscribe(employee => alert("Employee created successfully!"),
+        err => {
+          const combinedMessage = err.error.reduce((acc, elem) => acc + elem + "\n");
+
+          alert(combinedMessage);
+        });
   }
 
   constructor(private restService: EmployeeRestService) {}

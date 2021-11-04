@@ -7,8 +7,14 @@ import {Department} from '../applicationfacade/department/Department';
   providedIn: 'root'
 })
 export class DepartmentRestService {
-  public getDepartments() {
-    return this.httpClient.get<Department[]>("http://localhost:3000/departments/")
+  public getDepartments(offset: Number, limit: Number) {
+    offset = offset == null? 0: offset;
+    limit = limit == null? 5: limit;
+
+    console.log("offset", offset);
+    console.log("limit", limit);
+
+    return this.httpClient.get<Department[]>("http://localhost:3000/departments/?offset=" + offset + "&limit=" + limit);
   }
 
   public addDepartment(department: Department) {
@@ -30,8 +36,6 @@ export class DepartmentRestService {
   }
 
   public deleteDepartment(id: String) {
-    console.log("updating department...");
-
     return this.httpClient.delete<Department>("http://localhost:3000/departments/" + id);
   }
 
